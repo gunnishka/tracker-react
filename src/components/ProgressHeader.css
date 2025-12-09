@@ -15,14 +15,18 @@
 
 .stats-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+  min-width: 100px;
 }
 
 .stat-number {
@@ -31,9 +35,26 @@
   margin-bottom: 8px;
 }
 
+.stat-number.not-started {
+  color: #ff6b6b;
+}
+
+.stat-number.in-progress {
+  color: #4ecdc4;
+}
+
+.stat-number.completed {
+  color: #45b7d1;
+}
+
+.stat-number.percentage {
+  color: #ffd700;
+}
+
 .stat-label {
   font-size: 0.9em;
   opacity: 0.9;
+  text-align: center;
 }
 
 .progress-bar-container {
@@ -48,7 +69,7 @@
 .progress-bar-fill {
   height: 100%;
   border-radius: 10px;
-  transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, background-color 0.5s ease;
 }
 
 .progress-info p {
@@ -57,4 +78,35 @@
   font-size: 1.1em;
   opacity: 0.95;
   font-weight: 500;
+}
+
+.progress-info .celebration {
+  color: #ffd700;
+  font-weight: bold;
+  margin-top: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-item {
+    min-width: 200px;
+    margin-bottom: 15px;
+  }
 }
