@@ -10,10 +10,6 @@ function QuickActions({
   const hasNotStarted = technologies.some(
     (tech) => tech.status === "not-started"
   );
-  const hasInProgress = technologies.some(
-    (tech) => tech.status === "in-progress"
-  );
-  const hasCompleted = technologies.some((tech) => tech.status === "completed");
 
   // Подсчет количества по статусам
   const notStartedCount = technologies.filter(
